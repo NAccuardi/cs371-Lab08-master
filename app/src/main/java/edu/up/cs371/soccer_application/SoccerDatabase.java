@@ -190,7 +190,29 @@ public class SoccerDatabase implements SoccerDB {
     @Override
     // report number of players on a given team (or all players, if null)
 	public int numPlayers(String teamName) {
-        return -1;
+
+        if(teamName==null){
+
+            return soccerHash.size();
+
+        }else{
+            int countOfPlayer =0;
+            Set<String> keys = soccerHash.keySet();
+            for(String key: keys ){
+                if(teamName.equals( soccerHash.get(key).getTeamName())){
+
+                    countOfPlayer++;
+
+                }
+
+            }
+
+            return countOfPlayer;
+        }
+
+
+
+
 	}
 
     /**
