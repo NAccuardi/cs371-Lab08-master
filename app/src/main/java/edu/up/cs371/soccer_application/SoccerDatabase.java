@@ -83,8 +83,14 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpGoals(String firstName, String lastName) {
+        if(soccerHash.containsKey(firstName+"##"+lastName)) {
+            soccerHash.get(firstName+"##"+lastName).bumpGoals();
+            return true;
+        }
+
         return false;
     }
+
 
     /**
      * increment a player's assists
@@ -93,6 +99,11 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpAssists(String firstName, String lastName) {
+        if(soccerHash.containsKey(firstName+"##"+lastName)) {
+            soccerHash.get(firstName+"##"+lastName).bumpAssists();
+            return true;
+        }
+
         return false;
     }
 
@@ -103,6 +114,11 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpShots(String firstName, String lastName) {
+        if(soccerHash.containsKey(firstName+"##"+lastName)) {
+            soccerHash.get(firstName+"##"+lastName).bumpShots();
+            return true;
+        }
+
         return false;
     }
 
@@ -113,6 +129,11 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpSaves(String firstName, String lastName) {
+        if(soccerHash.containsKey(firstName+"##"+lastName)) {
+            soccerHash.get(firstName+"##"+lastName).bumpSaves();
+            return true;
+        }
+
         return false;
     }
 
@@ -123,6 +144,11 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpFouls(String firstName, String lastName) {
+        if(soccerHash.containsKey(firstName+"##"+lastName)) {
+            soccerHash.get(firstName+"##"+lastName).bumpFouls();
+            return true;
+        }
+
         return false;
     }
 
@@ -133,6 +159,11 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpYellowCards(String firstName, String lastName) {
+        if(soccerHash.containsKey(firstName+"##"+lastName)) {
+            soccerHash.get(firstName+"##"+lastName).bumpYellowCards();
+            return true;
+        }
+
         return false;
     }
 
@@ -143,6 +174,11 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpRedCards(String firstName, String lastName) {
+        if(soccerHash.containsKey(firstName+"##"+lastName)) {
+            soccerHash.get(firstName+"##"+lastName).bumpRedCards();
+            return true;
+        }
+
         return false;
     }
 
