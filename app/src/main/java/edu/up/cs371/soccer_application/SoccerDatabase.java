@@ -19,6 +19,7 @@ import java.util.*;
 public class SoccerDatabase implements SoccerDB {
 
     Hashtable <String, SoccerPlayer> soccerHash = new Hashtable<String, SoccerPlayer>();
+    Set<String> keys = soccerHash.keySet();
 
     /**
      * add a player
@@ -197,7 +198,6 @@ public class SoccerDatabase implements SoccerDB {
 
         }else{
             int countOfPlayer =0;
-            Set<String> keys = soccerHash.keySet();
             for(String key: keys ){
                 if(teamName.equals( soccerHash.get(key).getTeamName())){
 
@@ -223,7 +223,26 @@ public class SoccerDatabase implements SoccerDB {
 	// get the nTH player
 	@Override
     public SoccerPlayer playerNum(int idx, String teamName) {
-        return null;
+        int count = 0;
+        for (String key: keys) {
+            if (teamName == null) {
+
+                if (count == idx) {
+                    return soccerHash.get(key);
+                }
+                count++;
+
+        }else if(teamName.equals( soccerHash.get(key).getTeamName())) {
+            if (count == idx) {
+                return soccerHash.get(key);
+            }
+            count++;
+
+            }
+
+        //return null;
+        }
+    return null;
     }
 
     /**
