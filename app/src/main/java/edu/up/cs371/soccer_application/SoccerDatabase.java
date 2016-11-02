@@ -40,7 +40,7 @@ public class SoccerDatabase implements SoccerDB {
         }
 
 
-        
+
 	}
 
     /**
@@ -50,7 +50,13 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean removePlayer(String firstName, String lastName) {
-        return false;
+
+        if(soccerHash.containsKey(firstName+"##"+lastName)){
+            soccerHash.remove(firstName+"##"+lastName);
+            return true;
+        }else{
+
+        return false;}
     }
 
     /**
@@ -60,7 +66,14 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
 	public SoccerPlayer getPlayer(String firstName, String lastName) {
-        return null;
+
+        if(soccerHash.containsKey(firstName+"##"+lastName)){
+
+            return soccerHash.get(firstName+"##"+lastName);
+
+        }else{return null;}
+
+
     }
 
     /**
